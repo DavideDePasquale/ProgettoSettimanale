@@ -85,7 +85,7 @@ public class GestioneBib
         String titolo = sc.nextLine(); //RISPOSTA DI TIPO STRINGA
         //3) DEVO DOMANDARE L'ANNO DI PUBBLICAZIONE IN FORMATO YEAR
         System.out.println("Bravo. Adesso inserisci l'anno di pubblicazione del libro");
-        Year annoPubblicazione = Year.parse(sc.nextLine()); //RISPOSTA ANCH'ESSO IN FORMATO YEAR GRAZIE ALLA CONVERSIONE DELLA STRINGA DELLO SCANNER
+        Year annoPubblicazione = Year.parse(sc.nextLine());//RISPOSTA ANCH'ESSO IN FORMATO YEAR GRAZIE ALLA CONVERSIONE DELLA STRINGA DELLO SCANNER
         //4) CHIEDO DI INSERIRE LE PAGINE TOTALI IN FORMATO INT
         System.out.println("Ci sei quasi! Adesso inserisci il numero di pagine totale");
         int numeroPagine = Integer.parseInt(sc.nextLine()); //CONVERSIONE DELLA RISPOSTA TRAMITE SCANNER IN INT

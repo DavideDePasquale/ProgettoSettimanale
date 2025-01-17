@@ -52,7 +52,7 @@ public class Archivio {
         return  "ID=" + codISBN +
                 ", titolo='" + titolo + "'" +
                 ", annoPubblicazione=" + annoPubblicazione +
-                ", numeroPagine=" + numeroPagine + " "
+                ", numeroPagine=" + numeroPagine + ", "
                 ;
     }
 }
