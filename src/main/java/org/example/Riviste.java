@@ -2,10 +2,16 @@ package org.example;
 
 import java.time.Year;
 
-public class Riviste extends Archivio {
+public class Riviste extends ElemBib {
     private Periodicita periodicita;
 
-    public Riviste(long codISBN, String titolo, Year annoPubblicazione, int numeroPagine, Periodicita periodicita) {
+
+    public Riviste() {
+        super();
+        this.periodicita = null;
+    }
+
+    public Riviste(long codISBN, String titolo, int annoPubblicazione, int numeroPagine, Periodicita periodicita) {
         super(codISBN, titolo, annoPubblicazione, numeroPagine);
         this.periodicita = periodicita;
 

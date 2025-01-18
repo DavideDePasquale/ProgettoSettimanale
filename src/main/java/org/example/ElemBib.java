@@ -2,13 +2,20 @@ package org.example;
 
 import java.time.Year;
 
-public class Archivio {
+public class ElemBib {
     private long codISBN;
     private String titolo;
-    private Year annoPubblicazione;
+    private int annoPubblicazione;
     private int numeroPagine;
 
-    public Archivio(long codISBN, String titolo, Year annoPubblicazione, int numeroPagine) {
+    public ElemBib() {
+        this.codISBN= 0;
+        this.titolo= "";
+        this.annoPubblicazione= 0;
+        this.numeroPagine = 0;
+    }
+
+    public ElemBib(long codISBN, String titolo, int annoPubblicazione, int numeroPagine) {
         this.codISBN = codISBN;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
@@ -31,11 +38,11 @@ public class Archivio {
         this.titolo = titolo;
     }
 
-    public Year getAnnoPubblicazione() {
+    public int getAnnoPubblicazione() {
         return annoPubblicazione;
     }
 
-    public void setAnnoPubblicazione(Year annoPubblicazione) {
+    public void setAnnoPubblicazione(int annoPubblicazione) {
         this.annoPubblicazione = annoPubblicazione;
     }
 

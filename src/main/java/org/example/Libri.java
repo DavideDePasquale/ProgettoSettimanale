@@ -2,13 +2,21 @@ package org.example;
 
 import java.time.Year;
 
-public class Libri extends Archivio {
+public class Libri extends ElemBib {
     private String autore;
     private String genere;
-    public Libri(long codISBN, String titolo, Year annoPubblicazione, int numeroPagine, String autore, String genere) {
+
+    public Libri() {
+        super();
+        this.autore = "";
+        this.genere = "";
+    }
+
+    public Libri(long codISBN, String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
         super(codISBN, titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;
+
 
     }
 
