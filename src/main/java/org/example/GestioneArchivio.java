@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.*;
-
 public class GestioneArchivio {
     private List<ElemBib> archivio;
 
@@ -257,7 +256,7 @@ public class GestioneArchivio {
 
 
     }
-    public void statsArchivio(Scanner sc){
+    public void statsArchivio(){
         long numLibri = archivio.stream().filter(elem -> elem instanceof Libri).count();
         long numRiviste = archivio.stream().filter(elem ->elem instanceof Riviste).count();
         Optional<ElemBib> elementoMaxPage = archivio.stream().max(Comparator.comparingInt(ElemBib::getNumeroPagine));

@@ -82,7 +82,7 @@ public class GestioneBib {
                     break;
                 }
                 case 6: {
-                    gestioneBibl.statsArchivio(sc);
+                    gestioneBibl.statsArchivio();
 
                 }
                 case 7: {

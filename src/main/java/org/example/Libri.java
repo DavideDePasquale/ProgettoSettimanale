@@ -1,7 +1,5 @@
 package org.example;
 
-import java.time.Year;
-
 public class Libri extends ElemBib {
     private String autore;
     private String genere;
