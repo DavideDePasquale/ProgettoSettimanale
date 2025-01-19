@@ -172,7 +172,6 @@ public class GestioneArchivio {
             }
 
         }
-        System.out.println("Arrivederci.");
     }
     public void modificaElemTramiteISBN (Scanner sc){
         System.out.println("Inserisci l'ISBN dell'elemento che vorresti modificare!");
