@@ -36,7 +36,7 @@ public class Libri extends ElemBib {
 
     @Override
     public String toString() {
-        return "Libro {" + super.toString() +
+        return "Libro   {" + super.toString() +
                 "autore='" + autore + "'" +
                 ", genere='" + genere + "'" +
                 "}";

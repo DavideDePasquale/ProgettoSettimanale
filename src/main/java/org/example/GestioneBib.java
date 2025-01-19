@@ -8,7 +8,6 @@ import java.util.Scanner;
  *
  */
 public class GestioneBib {
-
     public static void main(String[] args) {
         GestioneArchivio gestioneBibl = new GestioneArchivio();
         Scanner sc = new Scanner(System.in);
@@ -99,7 +98,6 @@ public class GestioneBib {
         System.out.println("Roba in Archivio: ");
         System.out.println(gestioneBibl);
     }
-
     private static void visualizzazioneMenuIniziale() {
         System.out.println("Cosa vorresti fare?");
         System.out.println("Inserisci '1' per aggiungere un elemento libro o rivista");

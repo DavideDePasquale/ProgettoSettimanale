@@ -46,7 +46,6 @@ public class GestioneArchivio {
     public void aggiungiLibro(Scanner sc,ElemBib elemento) {
         System.out.println("Inserisci il codice ISBN del libro che vuoi aggiungere!");
         long codISBN = Long.parseLong(sc.nextLine()); // Leggi la risposta dell'utente
-
         while (!checkISBN(codISBN)) {
             System.out.println("INSERISCI DI NUOVO IL COD ISBN! NON ERA VALIDO");
             codISBN = Long.parseLong(sc.nextLine()); // Leggi la risposta dell'utente
@@ -57,22 +56,20 @@ public class GestioneArchivio {
         String titolo = sc.nextLine(); //RISPOSTA DI TIPO STRINGA
         //3) DEVO DOMANDARE L'ANNO DI PUBBLICAZIONE IN FORMATO YEAR
         System.out.println("Bravo. Adesso inserisci l'anno di pubblicazione del libro");
-        int annoPubblicazione = Integer.parseInt(sc.nextLine());//RISPOSTA ANCH'ESSO IN FORMATO YEAR GRAZIE ALLA CONVERSIONE DELLA STRINGA DELLO SCANNER
+        int annoPubblicazione = Integer.parseInt(sc.nextLine());
         //4) CHIEDO DI INSERIRE LE PAGINE TOTALI IN FORMATO INT
         System.out.println("Ci sei quasi! Adesso inserisci il numero di pagine totale");
         int numeroPagine = Integer.parseInt(sc.nextLine()); //CONVERSIONE DELLA RISPOSTA TRAMITE SCANNER IN INT
         //FACCIO LA DOMANDA PER RIEMPIRE I PARAMETRI DI "LIBRI"
-        //1) FACCIO LA DOMANDA PER AGGIUNGERE L'ISBN TRAMITE SCANNER
-        //5) CHIEDO DI INSERIRE L'AUTORE DEL LIBRO
+
         System.out.println("Inserisci l'autore del libro");
-        String autore = sc.nextLine(); // GIA IN FORMATO STRINGA, NO CONVERSIONE
+        String autore = sc.nextLine();
         //6) CHIEDO DI INSERIRE IL GENERE DEL LIBRO (GIà STRINGA)
         System.out.println("Hai praticamente finito! Inserisci per ultimo il genere del libro");
-        String genere = sc.nextLine(); //GENERE FORMATO STRINGA
+        String genere = sc.nextLine();
         //ISTANZIO IL NUOVO LIBRO CON I PARAMETRI IMMESSI PRIMA TRAMITE SCANNER
-       // Libri libro = new Libri(codISBN, titolo, annoPubblicazione, numeroPagine, autore, genere);
         Libri libro = new Libri(codISBN, titolo, annoPubblicazione, numeroPagine, autore, genere);
-        archivio.add(libro);//AGGIUNGO IL LIBRO ALLA LISTA DEI LIBRI
+        archivio.add(libro);//AGGIUNGO IL LIBRO NELL'ARCHIVIO
         System.out.println("Libro aggiunto all'archivio!"); //MESSAGGIO CARINO GIUSTO PER
     }
     public void aggiungiRivista(Scanner sc,ElemBib elemento){
@@ -89,16 +86,16 @@ public class GestioneArchivio {
 
         System.out.println("Perfetto! Adesso inserisci il titolo del libro");
         String titolo = sc.nextLine(); //RISPOSTA DI TIPO STRINGA
-        //3) DEVO DOMANDARE L'ANNO DI PUBBLICAZIONE IN FORMATO YEAR
+        //3) DEVO DOMANDARE L'ANNO DI PUBBLICAZIONE IN FORMATO INT
         System.out.println("Bravo. Adesso inserisci l'anno di pubblicazione del libro");
-        int annoPubblicazione = Integer.parseInt(sc.nextLine());//RISPOSTA ANCH'ESSO IN FORMATO YEAR GRAZIE ALLA CONVERSIONE DELLA STRINGA DELLO SCANNER
+        int annoPubblicazione = Integer.parseInt(sc.nextLine());//RISPOSTA ANCH'ESSO IN FORMATO INT GRAZIE ALLA CONVERSIONE DELLA STRINGA DELLO SCANNER
         //4) CHIEDO DI INSERIRE LE PAGINE TOTALI IN FORMATO INT
         System.out.println("Ci sei quasi! Adesso inserisci il numero di pagine totale");
         int numeroPagine = Integer.parseInt(sc.nextLine()); //CONVERSIONE DELLA RISPOSTA TRAMITE SCANNER IN INT
         System.out.println("Inserisci il tipo di pubblicazione : 'SETTIMANALE', 'MENSILE' o 'SEMESTRALE'");
-        Periodicita periodicita = Periodicita.valueOf(sc.nextLine().toUpperCase());
-        Riviste rivista = new Riviste(codISBN,titolo,annoPubblicazione,numeroPagine,periodicita);
-        archivio.add(rivista);
+        Periodicita periodicita = Periodicita.valueOf(sc.nextLine().toUpperCase()); //COSI DA RIFERIRSI ALLE OPZIONI DELL'ENUM ANCHE SCRIVENDO IN MANIERA DIFFERENTE
+        Riviste rivista = new Riviste(codISBN,titolo,annoPubblicazione,numeroPagine,periodicita); //ISTANZIO LA NUOVA RIVISTA CON I SUOI PARAMETRI
+        archivio.add(rivista); // L'AGGIUNGO IN ARCHIVIO
         System.out.println("Rivista aggiunta con successo!");
     }
     public void ricercaXISBN(Scanner sc) {
@@ -174,6 +171,7 @@ public class GestioneArchivio {
         }
     }
     public void modificaElemTramiteISBN (Scanner sc){
+
         System.out.println("Inserisci l'ISBN dell'elemento che vorresti modificare!");
         long codISBN = Long.parseLong(sc.nextLine());
        ElemBib elemento =  archivio.stream().filter(el -> el.getCodISBN() == codISBN).findFirst().orElse(null);
@@ -264,12 +262,9 @@ public class GestioneArchivio {
         } else {
             System.out.println("Nessun elemento in archivio! Devi prima crearti gli elementi!!!");
         }
-
         double mediaDellePage = archivio.stream().mapToInt(ElemBib::getNumeroPagine).average().orElse(0);
         System.out.println("Numero di Libri presenti in Archivio : " + numLibri);
         System.out.println("Numero di Riviste presenti in Archivio : " + numRiviste);
         System.out.println("Media pagine di tutti gli elementi in Archivio : " + mediaDellePage);
-
     }
-
 }
